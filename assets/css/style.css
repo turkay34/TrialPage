@@ -1,0 +1,268 @@
+body{
+    background-size: cover;
+    background: url("../img/street.jpg") no-repeat fixed center center;
+}
+.container{
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-columns: 3fr 1fr 3fr;
+    grid-template-areas:
+        "A A A"
+        ". B ."
+        "C . D";
+}
+.searchbox{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 950px;
+    bottom: 840px;
+    right: 0;
+    width: 300px;
+    height: 100px;
+}
+.search{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: crimson;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+// box-shadow: 0 0 25px 0 crimson;
+}
+search:hover{
+    cursor: pointer;
+}
+search::before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 22px;
+    right: 0;
+    bottom: 0;
+    left: 22px;
+    width: 12px;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg);
+    transition: all .5s;
+}
+search::after{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -5px;
+    right: 0;
+    bottom: 0;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all .5s;
+}
+.topnav input {
+    font-family: 'Inconsolata', monospace;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border: none;
+// border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: crimson;
+    color: white;
+    text-shadow: 0 0 10px crimson;
+    padding: 0 80px 0 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 25px 0 crimson,
+    0 20px 25px 0 rgba(0, 0, 0, 0.2);
+// box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+}
+.topnav input:hover{
+    cursor: pointer;
+}
+.topnav input:focus{
+    width: 200px;
+    opacity: 1;
+    cursor: text;
+}
+.topnav input:focus ~ .search {
+    right: -250px;
+    background: #151515;
+    z-index: 6
+}
+.topnav input::before{
+    top: 0;
+    left: 0;
+    width: 25px;
+}
+.topnav input::after{
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    border: none;
+    background: white;
+    border-radius: 0%;
+    transform: rotate(-45deg);
+}
+.topnav input::placeholder{
+    color: white;
+    opacity: 0.5;
+    font-weight: bolder;
+}
+.topnav{
+    grid-area: A;
+    border: 1px solid darkcyan;
+    overflow: hidden;
+    background-color: black;
+    opacity: 50%;
+}
+.topnav button{
+    float: right;
+    background-color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.topnav button:hover{
+    background-color: orangered;
+    border: 2px solid orangered;
+}
+.topnav a[href$=contact]{
+    margin-right: 300px;
+}
+.topnav a{
+    float: right;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+}
+.topnav a:hover{
+    background-color: gray;
+    color: orangered;
+}
+.topnav a:active{
+    background-color: orangered;
+    color: gray;
+}
+.top{
+    grid-area: B;
+    text-align: center;
+    align-self: center;
+}
+.top h1{
+    color: white;
+    font-size: 50px;
+}
+.top p{
+    color: white;
+    font-size: 16px;
+    opacity: 70%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+.top hr{
+    color: white;
+    border: 2px solid white;
+    width: 500px;
+}
+.top button{
+    height: 40px;
+    width: 150px;
+    color: white;
+}
+.top .btn-transparent{
+    border: 2px solid white;
+    background-color: transparent;
+}
+.top .btn-colored{
+    background-color: orangered;
+    border: 1px solid orangered;
+}
+.left{
+    grid-area: C;
+    padding-top: 20px;
+    justify-self: right;
+}
+.left button{
+    margin-left: 20px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(45deg);
+    background-color: gray;
+    border: 2px solid white;
+    float: left;
+}
+.left button:hover{
+    background-color: orangered;
+    border: 1px solid orangered;
+}
+.left h1{
+    color: whitesmoke;
+    margin-left: 90px;
+    font-size: 14px;
+}
+.left p{
+    color: whitesmoke;
+    opacity: 70%;
+    margin-left: 90px;
+    font-size: 10px;
+}
+.second{
+    margin-top: 80px;
+}
+.third{
+    margin-top: 80px;
+}
+.right{
+    grid-area: D;
+    padding-top: 20px;
+    justify-self: left;
+    align-items: end;
+    text-align: right;
+}
+.right button{
+    margin-right: 20px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(45deg);
+    background-color: gray;
+    border: 2px solid white;
+    float: right;
+}
+.right button:hover{
+    background-color: orangered;
+    border: 1px solid orangered;
+}
+.right h1{
+    color: whitesmoke;
+    margin-right: 90px;
+    font-size: 14px;
+}
+.right p{
+    color: whitesmoke;
+    opacity: 70%;
+    margin-right: 90px;
+    font-size: 10px;
+}
