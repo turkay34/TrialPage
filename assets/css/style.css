@@ -12,159 +12,41 @@ body{
         ". B ."
         "C . D";
 }
-.searchbox{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 950px;
-    bottom: 840px;
-    right: 0;
-    width: 300px;
-    height: 100px;
-}
-.search{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    background: crimson;
-    border-radius: 50%;
-    transition: all 1s;
-    z-index: 4;
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-// box-shadow: 0 0 25px 0 crimson;
-}
-search:hover{
-    cursor: pointer;
-}
-search::before{
-    content: "";
-    position: absolute;
-    margin: auto;
-    top: 22px;
-    right: 0;
-    bottom: 0;
-    left: 22px;
-    width: 12px;
-    height: 2px;
-    background: white;
-    transform: rotate(45deg);
-    transition: all .5s;
-}
-search::after{
-    content: "";
-    position: absolute;
-    margin: auto;
-    top: -5px;
-    right: 0;
-    bottom: 0;
-    left: -5px;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    border: 2px solid white;
-    transition: all .5s;
-}
-.topnav input {
-    font-family: 'Inconsolata', monospace;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    outline: none;
-    border: none;
-// border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    background: crimson;
-    color: white;
-    text-shadow: 0 0 10px crimson;
-    padding: 0 80px 0 20px;
-    border-radius: 30px;
-    box-shadow: 0 0 25px 0 crimson,
-    0 20px 25px 0 rgba(0, 0, 0, 0.2);
-// box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
-    transition: all 1s;
-    opacity: 0;
-    z-index: 5;
-    font-weight: bolder;
-    letter-spacing: 0.1em;
-}
-.topnav input:hover{
-    cursor: pointer;
-}
-.topnav input:focus{
-    width: 200px;
-    opacity: 1;
-    cursor: text;
-}
-.topnav input:focus ~ .search {
-    right: -250px;
-    background: #151515;
-    z-index: 6
-}
-.topnav input::before{
-    top: 0;
-    left: 0;
-    width: 25px;
-}
-.topnav input::after{
-    top: 0;
-    left: 0;
-    width: 25px;
-    height: 2px;
-    border: none;
-    background: white;
-    border-radius: 0%;
-    transform: rotate(-45deg);
-}
-.topnav input::placeholder{
-    color: white;
-    opacity: 0.5;
-    font-weight: bolder;
-}
 .topnav{
     grid-area: A;
-    border: 1px solid darkcyan;
     overflow: hidden;
     background-color: black;
-    opacity: 50%;
+    opacity: 60%;
 }
-.topnav button{
+.topnav a[href$=search]{
+    margin-right: 90px;
+}
+.topnav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.topnav li{
+    display: inline;
     float: right;
-    background-color: white;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-.topnav button:hover{
-    background-color: orangered;
-    border: 2px solid orangered;
-}
-.topnav a[href$=contact]{
-    margin-right: 300px;
+    margin-top: 60px;
 }
 .topnav a{
-    float: right;
-    display: block;
     color: white;
-    padding: 14px 16px;
+    padding: 20px 25px;
     text-align: center;
     text-decoration: none;
     font-size: 15px;
 }
-.topnav a:hover{
-    background-color: gray;
-    color: orangered;
+.topnav a:after{
+    display: block;
+    content: '';
+    border-bottom: solid 3px orangered;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
 }
-.topnav a:active{
-    background-color: orangered;
-    color: gray;
+.topnav a:hover:after{
+    transform: scaleX(1);
 }
 .top{
     grid-area: B;
@@ -199,6 +81,9 @@ search::after{
 .top .btn-colored{
     background-color: orangered;
     border: 1px solid orangered;
+}
+.top .btn-colored:hover{
+    background-color: gray;
 }
 .left{
     grid-area: C;
