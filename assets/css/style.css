@@ -2,21 +2,75 @@ body{
     background-size: cover;
     background: url("../img/street.jpg") no-repeat fixed center center;
 }
+.overlay{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay-content{
+    position: relative;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+}
+.overlay-content input[type$=text]{
+    height: 80px;
+    width: 500px;
+    color: white;
+    background-color: black;
+    border: none;
+}
+.overlay-content input[type$=text]::placeholder{
+    text-transform: uppercase;
+}
+.overlay a{
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    font-size: 60px;
+}
 .container{
     display: grid;
     grid-row-gap: 10px;
-    grid-template-rows: 1fr 2fr 2fr;
+    grid-template-rows: 100px 2fr 2fr 1fr;
     grid-template-columns: 3fr 1fr 3fr;
     grid-template-areas:
         "A A A"
         ". B ."
-        "C . D";
+        "C E D"
+        ". E .";
 }
 .topnav{
     grid-area: A;
     overflow: hidden;
     background-color: black;
     opacity: 60%;
+    align-self: center;
+}
+.topnav img{
+    float: left;
+    height: 100px;
+    margin-left: 130px;
 }
 .topnav a[href$=search]{
     margin-right: 90px;
@@ -29,18 +83,17 @@ body{
 .topnav li{
     display: inline;
     float: right;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 .topnav a{
     color: white;
-    padding: 20px 25px;
     text-align: center;
     text-decoration: none;
+    text-transform: uppercase;
     font-size: 15px;
+    padding: 20px 25px 41px;
 }
-.topnav a:after{
-    display: block;
-    content: '';
+.topnav a:hover{
     border-bottom: solid 3px orangered;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
@@ -48,6 +101,7 @@ body{
 .topnav a:hover:after{
     transform: scaleX(1);
 }
+
 .top{
     grid-area: B;
     text-align: center;
@@ -77,13 +131,16 @@ body{
 .top .btn-transparent{
     border: 2px solid white;
     background-color: transparent;
+    border-radius: 3px;
 }
 .top .btn-colored{
     background-color: orangered;
     border: 1px solid orangered;
+    border-radius: 3px;
 }
 .top .btn-colored:hover{
     background-color: gray;
+    transition: 0.24s;
 }
 .left{
     grid-area: C;
@@ -92,20 +149,25 @@ body{
 }
 .left button{
     margin-left: 20px;
-    height: 50px;
-    width: 50px;
-    transform: rotate(45deg);
-    background-color: gray;
+    height: 65px;
+    width: 65px;
+    border-radius: 65px;
+    background-color: transparent;
     border: 2px solid white;
     float: left;
 }
 .left button:hover{
     background-color: orangered;
     border: 1px solid orangered;
+    -webkit-animation: glowing 1500ms infinite;
+    moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
 }
 .left h1{
     color: whitesmoke;
     margin-left: 90px;
+    padding-top: 15px;
     font-size: 14px;
 }
 .left p{
@@ -129,20 +191,25 @@ body{
 }
 .right button{
     margin-right: 20px;
-    height: 50px;
-    width: 50px;
-    transform: rotate(45deg);
-    background-color: gray;
+    height: 65px;
+    width: 65px;
+    border-radius: 65px;
+    background-color: transparent;
     border: 2px solid white;
     float: right;
 }
 .right button:hover{
     background-color: orangered;
     border: 1px solid orangered;
+    -webkit-animation: glowing 1500ms infinite;
+    moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 1500ms infinite;
 }
 .right h1{
     color: whitesmoke;
     margin-right: 90px;
+    padding-top: 15px;
     font-size: 14px;
 }
 .right p{
@@ -150,4 +217,45 @@ body{
     opacity: 70%;
     margin-right: 90px;
     font-size: 10px;
+}
+.rotate {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+.rotate.down {
+    -moz-transform:rotateY(360deg);
+    -webkit-transform:rotateY(360deg);
+    transform:rotateY(360deg);
+}
+.phone{
+    grid-area: E;
+    border: 1px solid magenta;
+    width: 360px;
+    height: 640px;
+    margin: auto;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+}
+.phone .phone-content img{
+    width: 360px;
+    height: 640px;
+}
+.phone .phone-content{
+    width: 360px;
+    height: 640px;
+    background: white;
+    text-align: center;
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+@keyframes glowing {
+    0% { background-color: orangered; box-shadow: 0 0 3px white; }
+    50% { background-color: orangered; box-shadow: 0 0 40px white; }
+    100% { background-color: white; box-shadow: 0 0 3px white; }
 }

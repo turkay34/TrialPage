@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/5e5ab521c7.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Title</title>
@@ -10,15 +11,21 @@
 <body>
 
 <div class="container">
-    <div class="topnav">
+    <div id="topnav" class="topnav">
+        <img src="assets/img/logo.jpg" alt="phoenix-logo">
         <ul>
-            <li><a href="#search"><i class="fas fa-search"></i></a></li>
-            <li><a href="#contact">CONTACT</a></li>
-            <li><a href="#blog">BLOG</a></li>
-            <li><a href="#features">FEATURES</a></li>
-            <li><a href="#appstore">APP STORE</a></li>
-            <li><a href="home">HOME</a></li>
-
+            <li class="nav-link"><a href="#search" onclick="openNav()"><i class="fas fa-search"></i></a></li>
+            <div class="underline"></div>
+            <li class="nav-link"><a href="#contact">contact</a></li>
+            <div class="underline"></div>
+            <li class="nav-link"><a href="#blog">blog</a></li>
+            <div class="underline"></div>
+            <li class="nav-link"><a href="#features">features</a></li>
+            <div class="underline"></div>
+            <li class="nav-link"><a href="#appstore">app store</a></li>
+            <div class="underline"></div>
+            <li class="nav-link"><a href="index.html">home</a></li>
+            <div class="underline"></div>
         </ul>
     </div>
     <div class="top">
@@ -26,24 +33,24 @@
         <h1>AWESOME MOBILE</h1>
         <hr>
         <p>An awesome WordPress theme for App landing and App Store Site</p>
-        <button class="btn-transparent">AppStore</button>
-        <button class="btn-colored">Google Play</button>
+        <button class="btn-transparent"><i class="fab fa-apple"></i> AppStore</button>
+        <button class="btn-colored"><i class="fab fa-google"></i> Google Play</button>
     </div>
     <div class="left">
         <div class="first">
-            <button><i class="fas fa-mobile-alt"></i></button>
+            <button class="rotate" onclick="picturechange()"><i class="fas fa-mobile-alt"></i></button>
             <h1>PURE CSS DEVIDES</h1>
             <p>All showcase devides are made by pure</p>
             <p>CSS and 100% Retina ready</p>
         </div>
         <div class="second">
-            <button><i class="fas fa-laptop"></i></button>
+            <button class="rotate" onclick="picturechangels()"><i class="fas fa-laptop"></i></button>
             <h1>FULL RESPONSIVE</h1>
             <p>Build on Bootstrap with powerful</p>
             <p>Responsiveness</p>
         </div>
-        <div class="third">
-            <button><i class="fab fa-apple"></i></button>
+        <div class="third" id="btn-lt">
+            <button class="rotate" onclick="picturechangelt()"><i class="fab fa-apple"></i></button>
             <h1>RETINA READY</h1>
             <p>Retina ready with Pure CSS devides</p>
             <p>and Font icons</p>
@@ -51,24 +58,80 @@
     </div>
     <div class="right">
         <div class="first">
-            <button><i class="fas fa-star"></i></button>
+            <button class="rotate" onclick="picturechangerf()"><i class="fas fa-star"></i></button>
             <h1>MANY SHOWCASE STYLES</h1>
             <p>4 Awesome Showcase styles, you</p>
             <p>can do unlimited showcase</p>
         </div>
         <div class="second">
-            <button><i class="fab fa-telegram-plane"></i></button>
+            <button class="rotate" onclick="picturechangers()"><i class="fab fa-telegram-plane"></i></button>
             <h1>UNLIMITED PURPOSES</h1>
             <p>Show your apps, yourteam, your</p>
             <p>store... It's unlimited</p>
         </div>
         <div class="third">
-            <button><i class="fab fa-cloudscale"></i></button>
+            <button class="rotate" onclick="picturechangert()()"><i class="fab fa-cloudscale"></i></button>
             <h1>PREMIUM SUPPORT</h1>
             <p>Ask us everything and you will get</p>
             <p>the best asnwers</p>
         </div>
     </div>
+    <div class="phone">
+        <div class="phone-content">
+            <img id="content-image" src="assets/img/phoenix.jpg" alt="phoenix">
+        </div>
+    </div>
 </div>
+<div id="myNav" class="overlay">
+    <div class="overlay-content">
+        <input type="text" placeholder="type and hit enter to search">
+        <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+    </div>
+</div>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+
+    window.onscroll = function() {myFunction()};
+
+    var topnav = document.getElementById("topnav");
+    var sticky = topnav.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            topnav.classList.add("sticky")
+        } else {
+            topnav.classList.remove("sticky");
+        }
+    }
+
+    $(".rotate").on("click",function () {
+        $(this).toggleClass("down");
+    })
+
+    function picturechange() {
+    document.getElementById("content-image").src="assets/img/chat1.jpg";
+    }
+    function picturechangels() {
+        document.getElementById("content-image").src="assets/img/chat2.jpeg";
+    }
+    function picturechangelt() {
+        document.getElementById("content-image").src="assets/img/phoenix3.jpg";
+    }
+    function picturechangerf() {
+        document.getElementById("content-image").src="assets/img/icephoenix1.jpg";
+    }
+    function picturechangers() {
+        document.getElementById("content-image").src="assets/img/phoenix4.jpg";
+    }
+    function picturechangert() {
+        document.getElementById("content-image").src="assets/img/phoenix5.jpg";
+    }
+</script>
 </body>
 </html>
